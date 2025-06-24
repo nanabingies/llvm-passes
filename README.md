@@ -22,7 +22,10 @@ $ cd llvm-passes
 ```
 
 2. Configure and build each pass
+### To build DeadFunctionAnalyzer
 ``` console
-$ cd tests/
-$ make
+$ mkdir build/ && cd build/
+$ clang++ -S -emit-llvm ../tests/test01.c -o test01.ll
+$ clang++ -fPIC -shared -std=c++17 -g `llvm-config --cxxflags --ldflags --system-libs --libs core passes` -o deadfunc.so ../src/DeadFunctionAnalyzer.cpp
+$ opt -load-pass-plugin ./deadfunc.so -passes=dead-func -disable-output test01.ll
 ```
