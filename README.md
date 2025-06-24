@@ -22,7 +22,7 @@ $ cd llvm-passes
 ```
 
 2. Configure and build each pass
-### To build DeadFunctionAnalyzer
+DeadFunctionAnalyzer
 ``` console
 $ mkdir build/ && cd build/
 $ clang++ -S -emit-llvm ../tests/test01.c -o test01.ll

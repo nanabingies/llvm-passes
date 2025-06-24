@@ -211,10 +211,3 @@ extern "C" LLVM_ATTRIBUTE_WEAK llvm::PassPluginLibraryInfo llvmGetPassPluginInfo
     return getPassPluginInfo();
 }
 
-// To compile this program, follow the steps otlined below.
-// 1. cd ../tests/
-// 2. clang++ -S -emit-llvm test01.c -o test01.ll
-// 3. cd ../src/
-// 4. clang++ -fPIC -shared -std=c++17 -g `llvm-config --cxxflags --ldflags --system-libs --libs core passes` -o deadfunc.so DeadFunctionAnalyzer.cpp
-// 6. opt -load-pass-plugin ./deadfunc.so -passes=dead-func -disable-output ../tests/test01.ll
-
