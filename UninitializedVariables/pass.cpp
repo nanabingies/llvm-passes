@@ -10,6 +10,7 @@ using namespace llvm;
 namespace UVPass {
 
     PreservedAnalyses UninitializedVariablePass::run(Module& Module, ModuleAnalysisManager& MAM) {
+        // https://github.com/isuckatcs/how-to-compile-your-language/blob/main/src/sema.cpp#L64
         enum class State { Bottom, Unassigned, Assigned, Top };
 
         using Lattice = std::map<StringRef, State>;
